@@ -11,9 +11,9 @@ connectDB();
 
 // Enable CORS for requests from http://localhost:3000
 app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow these HTTP methods
-  credentials: true  // Enable credentials if necessary
+  origin: 'http://localhost:3000', // Allow your frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+  credentials: true // Enable credentials if necessary
 }));
 
 app.use(express.json());
@@ -21,8 +21,4 @@ app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-}
-
-module.exports = app; // Export for Vercel
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
