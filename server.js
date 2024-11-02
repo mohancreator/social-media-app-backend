@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); 
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');  // Import the CORS package
@@ -17,7 +17,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes); // Ensure this is after CORS
 
 const PORT = process.env.PORT || 5000;
 
